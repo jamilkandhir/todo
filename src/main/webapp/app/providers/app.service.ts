@@ -13,7 +13,7 @@ export class AppService {
      * getTodos
      */
     public getTodos(): Observable<any> {
-        return this.http.get('/todos').map((res: Response) => {
+        return this.http.get('/assessment/todos').map((res: Response) => {
                 return res.json();
             });
     }
@@ -22,7 +22,7 @@ export class AppService {
      * getTodos
      */
     public removeTodo(data: any): Observable<any> {
-        return this.http.post('/delete', data).map((res: Response) => {
+        return this.http.post('/assessment/delete', data).map((res: Response) => {
                 return res.json();
             });
     }
@@ -42,7 +42,7 @@ export class AppService {
                 data["completed"] = true;
             }
         }
-        return this.http.post('/save',data, {headers: headers})
+        return this.http.post('/assessment/save',data, {headers: headers})
             .map((res:Response) => {
                return res.json();
             }
